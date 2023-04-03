@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.filterBtn {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.css.taskList {
+  display: flex;
+  gap: 10px;
+}

@@ -1,0 +1,13 @@
+.itemBtn {
+    display: inline-block;
+    cursor: pointer;
+    background-color:skyblue;
+    width: auto;
+    height: 30px;
+    border-radius: 5px;
+    border: transparent;
+}
+
+.itemBtn:hover{
+    background-color: aqua;
+}
