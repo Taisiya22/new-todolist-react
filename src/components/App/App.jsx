@@ -4,6 +4,7 @@ import { Todo } from '../Todo/Todo.jsx';
 import { FilterBtn } from '../FilterBtn/FilterBtn.jsx';
 import { nanoid } from 'nanoid';
 import css from './App.module.css';
+
 const FILTER_MAP = {
   All: () => true,
   Active: task => !task.completed,
