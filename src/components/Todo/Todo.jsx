@@ -35,7 +35,7 @@ export const Todo = ({
       />
       <div>
         <button onClick={() => setEditing(false)}>Cancel</button>
-        <button onClick={() => setEditing(false)}>Save</button>
+        <button>Save</button>
       </div>
     </form>
   );
