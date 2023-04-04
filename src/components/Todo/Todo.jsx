@@ -1,5 +1,6 @@
 import css from './Todo.module.css';
-import { useState } from 'react'; 
+import { useState} from 'react'; 
+
 
 export const Todo = ({
   tasks,
@@ -13,6 +14,8 @@ export const Todo = ({
   const [isEditing, setEditing] = useState(false);
   const [newTitle, setNewTitle] = useState('');
 
+  
+
   const handleChange = e => {
     setNewTitle(e.target.value);
   };
@@ -23,7 +26,7 @@ export const Todo = ({
     setEditing(false);
   }
   const editingTemplate = (
-    <form onSubmit={handleSubmit} className={css.item }>
+    <form onSubmit={handleSubmit} className={css.item}>
       <input
         type="text"
         id={id}
@@ -32,7 +35,7 @@ export const Todo = ({
       />
       <div>
         <button onClick={() => setEditing(false)}>Cancel</button>
-        <button>Save</button>
+        <button onClick={() => setEditing(false)}>Save</button>
       </div>
     </form>
   );
@@ -49,7 +52,7 @@ export const Todo = ({
             onChange={() => toggleComplete(id)}
           />
           <button onClick={() => onDelete(id)}>Delete</button>
-          <button onClick={() => setEditing(true)}>Edit</button>
+          <button type = 'button' onClick={() => setEditing(true)}>Edit</button>
         </div>
       </div>
     </div>
