@@ -17,9 +17,12 @@ export const Todo = ({
   
 
   const handleChange = e => {
-    setNewTitle(e.target.value);
+    setNewTitle(e.target.value.trim());
   };
   const handleSubmit = (e) => { 
+    if (!newTitle.trim()) {
+      return;
+    }
     e.preventDefault();
     editTask(id, newTitle) ;
     setNewTitle('');
@@ -30,7 +33,7 @@ export const Todo = ({
       <input
         type="text"
         id={id}
-        value={newTitle || title}
+        value={newTitle || title} 
         onChange={handleChange}
       />
       <div>
@@ -52,7 +55,7 @@ export const Todo = ({
             onChange={() => toggleComplete(id)}
           />
           <button onClick={() => onDelete(id)}>Delete</button>
-          <button type = 'button' onClick={() => setEditing(true)}>Edit</button>
+          <button onClick={() => setEditing(true)}>Edit</button>
         </div>
       </div>
     </div>
