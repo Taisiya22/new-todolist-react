@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Form } from '../Form/Form.jsx';
 import { Todo } from '../Todo/Todo.jsx';
 import { FilterBtn } from '../FilterBtn/FilterBtn.jsx';
+import { Counter } from 'components/Counter/Counter.jsx';
 import { nanoid } from 'nanoid';
 import css from './App.module.css';
 
@@ -77,10 +78,7 @@ export const App = () => {
     <div>
       <Form addTask={addTask} />
       <div className={css.wrapper}>
-        <div>
-          <p> Total:{tasks.length}</p>
-          <p>Completed:{completedTasks}</p>
-        </div>
+        <Counter tasks={tasks} />
         <ul className={css.filterBtn}>{filterList}</ul>
       </div>
       {/* <Todo
@@ -91,7 +89,6 @@ export const App = () => {
         toggleComplete={toggleComplete}
         editTask={editTask}
         tasks={tasks}
-        // completed={task.completed}
       /> */}
       <ul>{taskList}</ul>
     </div>
