@@ -1,18 +1,19 @@
 import { useState } from 'react';
 import { Form } from '../Form/Form.jsx';
 import { Todo } from '../Todo/Todo.jsx';
-import { FilterBtn } from '../FilterBtn/FilterBtn.jsx';
+import { FilterBtn } from '../FilterBtn/FilterList.jsx';
 import { Counter } from 'components/Counter/Counter.jsx';
 import { nanoid } from 'nanoid';
 import css from './App.module.css';
-
-const FILTER_MAP = {
+// import { FilterList } from 'components/FilterBtn/FilterList.jsx';
+// import { TodoList } from 'components/TodoList.jsx';
+const filterStatus = {
   All: () => true,
   Active: task => !task.completed,
   Completed: task => task.completed,
 };
-const FILTER_NAMES = Object.keys(FILTER_MAP);
-// console.log(FILTER_NAMES);
+const filterNames = Object.keys(filterStatus);
+// console.log(filterStatus);
 export const App = () => {
   const [tasks, setTasks] = useState([
     { id: nanoid(), title: 'Learn HTML', completed: false },
@@ -30,7 +31,7 @@ export const App = () => {
   ]);
   const [filter, setFilter] = useState('All');
 
-  const filterList = FILTER_NAMES.map(name => (
+  const filterList = filterNames.map(name => (
     <FilterBtn key={name} name={name} setFilter={setFilter} />
   ));
 
@@ -55,13 +56,9 @@ export const App = () => {
     setTasks(
       tasks.map(task => (task.id === id ? { ...task, title: newTitle } : task))
     );
-  const completedTasks = tasks.reduce(
-    (acc, task) => (task.completed ? acc + 1 : acc),
-    0
-  );
 
   const taskList = tasks
-    .filter(FILTER_MAP[filter])
+     .filter(filterStatus[filter])
     .map(task => (
       <Todo
         id={task.id}
@@ -79,7 +76,8 @@ export const App = () => {
       <Form addTask={addTask} />
       <div className={css.wrapper}>
         <Counter tasks={tasks} />
-        <ul className={css.filterBtn}>{filterList}</ul>
+        {/* <FilterList /> */}
+         <ul className={css.filterBtn}>{filterList}</ul> 
       </div>
       {/* <Todo
         id={tasks.id}
@@ -90,7 +88,15 @@ export const App = () => {
         editTask={editTask}
         tasks={tasks}
       /> */}
-      <ul>{taskList}</ul>
+
+      {/* <TodoList
+        tasks={tasks}
+        onDelete={onDelete}
+        toggleComplete={toggleComplete}
+        editTask={editTask}
+      /> */}
+
+      <ul>{taskList}</ul> 
     </div>
   );
 };
