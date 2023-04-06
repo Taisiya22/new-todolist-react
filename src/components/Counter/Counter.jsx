@@ -1,5 +1,5 @@
-import React from 'react'
 
+import css from './Counter.module.css'
 export const Counter = ({ tasks}) => {
     const completedTasks = tasks.reduce(
       (acc, task) => (task.completed ? acc + 1 : acc),
@@ -7,7 +7,7 @@ export const Counter = ({ tasks}) => {
     );
 
   return (
-    <div>
+      <div className={css.count }>
           <p>Total:{tasks.length }</p>
           <p>Completed:{completedTasks}</p>
     </div>

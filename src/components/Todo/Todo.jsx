@@ -14,8 +14,6 @@ export const Todo = ({
   const [isEditing, setEditing] = useState(false);
   const [newTitle, setNewTitle] = useState('');
 
-  
-
   const handleChange = e => {
     setNewTitle(e.target.value.trim());
   };
@@ -67,44 +65,4 @@ export const Todo = ({
     </li>
   );
 
-  // return isEditing ? (
-  //   <ul>
-  //     {tasks.map(({ id, newTitle, title }) => (
-  //       <form onSubmit={() => {handleSubmit(id) }} className={css.item} key={id}>
-  //         <input
-  //           type="text"
-  //           id={id}
-  //           value={newTitle || title}
-  //           onChange={() => { handleChange(id)} }
-  //         />
-  //         <div>
-  //           <button type="button" onClick={() => setEditing(false)}> 
-  //             Cancel
-  //           </button>
-  //           <button type="button">Save</button>
-  //         </div>
-  //       </form>
-  //     ))}
-  //   </ul>
-  // ) : (
-  //   <ul>
-  //     {tasks.map(({ id, title, completed }) => (
-  //       <div key={id} className={css.item}>
-  //         <p>{title}</p>
-  //         <div>
-  //           <div>
-  //             <input
-  //               key={id}
-  //               type="checkbox"
-  //               checked={completed}
-  //               onChange={() => toggleComplete(id)}
-  //             />
-  //             <button onClick={() => onDelete(id)}>Del</button>
-  //             <button onClick={() => setEditing(true)}>Edit</button>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     ))}
-  //   </ul>
-  // );
 };
